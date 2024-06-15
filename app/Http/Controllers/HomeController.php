@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Choosus;
 use App\Models\Counter;
 use App\Models\Service;
@@ -16,11 +17,13 @@ class HomeController extends Controller
         $services = Service::all();
         $counters = Counter::whereStatus(true)->get();
         $chooseuses = Choosus::all();
+        $blogs = Blog::withCount("comments")-> latest()->take(3)->get();
         return view('home')->with([
             'setting' => $setting,
             "services" => $services,
             "counters" => $counters,
-            "chooseuses" => $chooseuses
+            "chooseuses" => $chooseuses,
+            "blogs" => $blogs
         ]);
     }
 }
