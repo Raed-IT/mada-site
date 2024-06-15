@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Filament\Resources\SettingResource;
+use App\Models\Setting;
+use Filament\Facades\Filament;
+use Filament\Navigation\NavigationItem;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +23,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Filament::serving(function () {
+            Filament::registerNavigationItems([
+                NavigationItem::make('Setting')
+                    ->url(SettingResource::getUrl() . '/' . Setting::first()->id . '/edit')
+                    ->icon('heroicon-o-cog-8-tooth')
+                    ->group('Settings')->isActiveWhen(fn() => \Request::route()->getName() === "filament.dashboard.resources.settings.edit")
+            ]);
+        });
     }
 }
