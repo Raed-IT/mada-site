@@ -28,78 +28,23 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6 d-flex align-self-stretch ftco-animate">
-                    <div class="media block-6 services d-flex align-items-center">
-                        <div class="icon d-flex align-items-center justify-content-center order-md-last">
-                            <span class="flaticon-cloud"></span>
-                        </div>
-                        <div class="media-body pl-4 pl-md-0 pr-md-4 text-md-right">
-                            <h3 class="heading">Super Fast Server</h3>
-                            <p class="mb-0">Even the all-powerful Pointing has no control about the blind texts it is an
-                                almost unorthographic.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 d-flex align-self-stretch ftco-animate">
-                    <div class="media block-6 services d-flex align-items-center">
-                        <div class="icon d-flex align-items-center justify-content-center">
-                            <span class="flaticon-server"></span>
-                        </div>
-                        <div class="media-body pl-4">
-                            <h3 class="heading">Daily Backups</h3>
-                            <p class="mb-0">Even the all-powerful Pointing has no control about the blind texts it is an
-                                almost unorthographic.</p>
+                @foreach($chooseuses as $choose)
+                    <div class="col-md-6 d-flex align-self-stretch ftco-animate">
+                        <div class="media block-6 services d-flex align-items-center">
+                            <div class="icon d-flex align-items-center justify-content-center">
+                                <img
+                                    width="50px"
+                                    src="data:image/svg+xml;base64,{{ base64_encode($choose->icon) }}"
+                                    class="img-fluid" alt="">
+                            </div>
+                            <div class="media-body pl-4 pl-md-0 pr-md-4 text-md-right">
+                                <h3 class="heading">{{$choose->title}}</h3>
+                                <p class="mb-0">{{$choose->info}}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 d-flex align-self-stretch ftco-animate">
-                    <div class="media block-6 services d-flex align-items-center">
-                        <div class="icon d-flex align-items-center justify-content-center order-md-last">
-                            <span class="flaticon-customer-service"></span>
-                        </div>
-                        <div class="media-body pl-4 pl-md-0 pr-md-4 text-md-right">
-                            <h3 class="heading">Technical Services</h3>
-                            <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
-                                unorthographic.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 d-flex align-self-stretch ftco-animate">
-                    <div class="media block-6 services d-flex align-items-center">
-                        <div class="icon d-flex align-items-center justify-content-center">
-                            <span class="flaticon-life-insurance"></span>
-                        </div>
-                        <div class="media-body pl-4">
-                            <h3 class="heading">Secure and Reliable</h3>
-                            <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
-                                unorthographic.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 d-flex align-self-stretch ftco-animate">
-                    <div class="media block-6 services d-flex align-items-center">
-                        <div class="icon d-flex align-items-center justify-content-center order-md-last">
-                            <span class="flaticon-cloud-computing"></span>
-                        </div>
-                        <div class="media-body pl-4 pl-md-0 pr-md-4 text-md-right">
-                            <h3 class="heading">DNS Control</h3>
-                            <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
-                                unorthographic.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 d-flex align-self-stretch ftco-animate">
-                    <div class="media block-6 services d-flex align-items-center">
-                        <div class="icon d-flex align-items-center justify-content-center">
-                            <span class="flaticon-settings"></span>
-                        </div>
-                        <div class="media-body pl-4">
-                            <h3 class="heading">24/7 Support</h3>
-                            <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
-                                unorthographic.</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </section>
@@ -114,38 +59,17 @@
             <div class="row justify-content-center">
                 <div class="col-md-10">
                     <div class="row">
-                        <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-                            <div class="block-18 text-center">
-                                <div class="text">
-                                    <strong class="number" data-number="12000">0</strong>
-                                    <span>CMS Installation</span>
+                        @foreach($counters as $counter)
+                            <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+                                <div class="block-18 text-center">
+                                    <div class="text">
+                                        <strong class="number" data-number="{{$counter->count}}">0</strong>
+                                        <span>{{$counter->title}}</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-                            <div class="block-18 text-center">
-                                <div class="text">
-                                    <strong class="number" data-number="100">0</strong>
-                                    <span>Awards Won</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-                            <div class="block-18 text-center">
-                                <div class="text">
-                                    <strong class="number" data-number="10000">0</strong>
-                                    <span>Registered Domains</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-                            <div class="block-18 text-center">
-                                <div class="text">
-                                    <strong class="number" data-number="9000">0</strong>
-                                    <span>Satisfied Customers</span>
-                                </div>
-                            </div>
-                        </div>
+
+                        @endforeach
                     </div>
                 </div>
             </div>
