@@ -23,9 +23,8 @@
         <div class="container">
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 text-center heading-section ftco-animate">
-                    <h2 class="mb-4">Why Choose Us</h2>
-                    <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
-                        unorthographic.</p>
+                    <h2 class="mb-4"> {{$setting->why_choose_us_label}}</h2>
+                    <p>{{$setting->why_choose_us_desc}}</p>
                 </div>
             </div>
             <div class="row">
@@ -109,7 +108,7 @@
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-                    <span class="subheading">More than 12,000 websites trusted hosted</span>
+                    <span class="subheading">{{$setting->counter_label}}</span>
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -159,58 +158,29 @@
                     <img src="data:image/svg+xml;base64,{{ base64_encode($setting->main_services_icon) }}"
                          class="img-fluid" alt="">
                     <div class="heading-section ftco-animate mt-5">
-                        <h2 class="mb-4">Our Main Services</h2>
-                        <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
-                            unorthographic. A small river named Duden flows by their place and supplies it with the
-                            necessary regelialia. It is a paradisematic country.</p>
+                        <h2 class="mb-4">{{$setting->main_services_label}}</h2>
+                        <p>{{$setting->main_services_desc}}</p>
                     </div>
                 </div>
                 <div class="col-lg-6 py-5">
                     <div class="row">
-                        <div class="col-md-6 ftco-animate">
-                            <div class="media block-6 services border text-center">
-                                <div class="icon d-flex align-items-center justify-content-center">
-                                    <span class="flaticon-cloud-computing"></span>
-                                </div>
-                                <div class="mt-3 media-body media-body-2">
-                                    <h3 class="heading">Cloud VPS</h3>
-                                    <p>Even the all-powerful Pointing has no control about the blind texts</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 ftco-animate">
-                            <div class="media block-6 services border text-center">
-                                <div class="icon d-flex align-items-center justify-content-center">
-                                    <span class="flaticon-cloud"></span>
-                                </div>
-                                <div class="mt-3 media-body media-body-2">
-                                    <h3 class="heading">Share</h3>
-                                    <p>Even the all-powerful Pointing has no control about the blind texts</p>
+                        @foreach($services as $service)
+                            <div class="col-md-6 ftco-animate">
+                                <div class="media block-6 services border text-center">
+                                    <div class="icon d-flex align-items-center justify-content-center">
+                                        <img
+                                            width="50px"
+                                            src="data:image/svg+xml;base64,{{ base64_encode($service->icon) }}"
+                                            class="img-fluid" alt="">
+                                    </div>
+                                    <div class="mt-3 media-body media-body-2">
+                                        <h3 class="heading">{{$service->title}}</h3>
+                                        <p>{{$service->info}}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-6 ftco-animate">
-                            <div class="media block-6 services border text-center">
-                                <div class="icon d-flex align-items-center justify-content-center">
-                                    <span class="flaticon-server"></span>
-                                </div>
-                                <div class="mt-3 media-body media-body-2">
-                                    <h3 class="heading">VPS</h3>
-                                    <p>Even the all-powerful Pointing has no control about the blind texts</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 ftco-animate">
-                            <div class="media block-6 services border text-center">
-                                <div class="icon d-flex align-items-center justify-content-center">
-                                    <span class="flaticon-database"></span>
-                                </div>
-                                <div class="mt-3 media-body media-body-2">
-                                    <h3 class="heading">Dedicated</h3>
-                                    <p>Even the all-powerful Pointing has no control about the blind texts</p>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+
                     </div>
                 </div>
             </div>
@@ -221,8 +191,8 @@
         <div class="container">
             <div class="row justify-content-center mb-5 pb-5">
                 <div class="col-md-7 text-center heading-section ftco-animate">
-                    <span class="subheading">Services</span>
-                    <h2 class="mb-4">How it works</h2>
+                    <span class="subheading">{{$setting->how_it_works_desc}}</span>
+                    <h2 class="mb-4">{{$setting->how_it_works_label}}</h2>
                 </div>
             </div>
             <div class="row">
@@ -308,9 +278,8 @@
         <div class="container">
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 text-center heading-section ftco-animate">
-                    <h2>Recent Blog</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
-                        live the blind texts. Separated they live in</p>
+                    <h2>{{$setting->recent_blog_label}}</h2>
+                    <p>{{$setting->recent_blog_desc}}</p>
                 </div>
             </div>
             <div class="row">
