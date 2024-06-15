@@ -1,23 +1,35 @@
 @extends('layouts.layout')
 @section('content')
-    <div class="hero-wrap js-fullheight">
+
+    <div class="hero-wrap hero-wrap-2" style="background-image: url({{asset('/images/hero.png')}})" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
-        <div class="container-fluid px-0">
-            <div class="row d-md-flex no-gutters slider-text align-items-center js-fullheight justify-content-end">
-                <img class="one-third js-fullheight align-self-end order-md-last img-fluid"
-                     src="data:image/svg+xml;base64,{{ base64_encode($setting->hero_icon) }}" alt="">
-                <div class="one-forth d-flex align-items-center ftco-animate js-fullheight">
-                    <div class="text mt-5">
-                        <span class="subheading">Isometric Hosting</span>
-                        <h1 class="mb-3"><span>Design,</span> <span>Development,</span> <span>Hosting</span></h1>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                            there live the blind texts.</p>
-                        <p><a href="#" class="btn btn-primary px-4 py-3">Get in touch</a></p>
-                    </div>
-                </div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-end justify-content-start">
+{{--                <div class="col-md-8 ftco-animate text-center text-md-left mb-5">--}}
+{{--                    <p class="breadcrumbs mb-0"><span class="mr-3"><a href="{{ route('home')}}">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>About</span></p>--}}
+{{--                    <h1 class="mb-3 bread">About</h1>--}}
+{{--                </div>--}}
             </div>
         </div>
     </div>
+{{--    <div class="hero-wrap js-fullheight">--}}
+{{--        <div class="overlay"></div>--}}
+{{--        <div class="container-fluid px-0">--}}
+{{--            <div class="row d-md-flex no-gutters slider-text align-items-center js-fullheight justify-content-end">--}}
+{{--                <img class="one-third js-fullheight align-self-end order-md-last img-fluid"--}}
+{{--                     src="data:image/svg+xml;base64,{{ base64_encode($setting->hero_icon) }}" alt="">--}}
+{{--                <div class="one-forth d-flex align-items-center ftco-animate js-fullheight">--}}
+{{--                    <div class="text mt-5">--}}
+{{--                        <span class="subheading">Isometric Hosting</span>--}}
+{{--                        <h1 class="mb-3"><span>Design,</span> <span>Development,</span> <span>Hosting</span></h1>--}}
+{{--                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,--}}
+{{--                            there live the blind texts.</p>--}}
+{{--                        <p><a href="#" class="btn btn-primary px-4 py-3">Get in touch</a></p>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
     <section class="ftco-section services-section bg-light">
         <div class="container">
@@ -131,11 +143,6 @@
                                role="tab" aria-controls='{{"v-pills-".Illuminate\Support\Str::slug($implement->tap)}}'
                                aria-selected="true">{{$implement->tap}}</a>
                         @endforeach
-                        {{--                        <a class="nav-link" id="v-pills-performance-tab" data-toggle="pill" href="#v-pills-performance"--}}
-                        {{--                           role="tab" aria-controls="v-pills-performance" aria-selected="false">Performance</a>--}}
-
-                        {{--                        <a class="nav-link" id="v-pills-effect-tab" data-toggle="pill" href="#v-pills-effect" role="tab"--}}
-                        {{--                           aria-controls="v-pills-effect" aria-selected="false">Effectiveness</a>--}}
                     </div>
                 </div>
                 <div class="col-md-12 align-items-center ftco-animate">
@@ -153,48 +160,13 @@
                                     <div class="one-half ml-md-5 align-self-center">
                                         <h2 class="mb-4">{{$implement->title}}</h2>
                                         <p> {{$implement->info}} </p>
-
-{{--                                        <p><a href="#" class="btn btn-primary py-3">Get in touch</a></p>--}}
+                                        {{-- <p><a href="#" class="btn btn-primary py-3">Get in touch</a></p>--}}
                                     </div>
                                 </div>
                             </div>
                         @endforeach
 
-                        {{--                        <div class="tab-pane fade" id="v-pills-performance" role="tabpanel"--}}
-                        {{--                             aria-labelledby="v-pills-performance-tab">--}}
-                        {{--                            <div class="d-md-flex">--}}
-                        {{--                                <div class="one-forth order-last align-self-center">--}}
-                        {{--                                    <img src="images/undraw_visual_data_b1wx.svg" class="img-fluid" alt="">--}}
-                        {{--                                </div>--}}
-                        {{--                                <div class="one-half order-first mr-md-5 align-self-center">--}}
-                        {{--                                    <h2 class="mb-4">Performance VPS hosting</h2>--}}
-                        {{--                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and--}}
-                        {{--                                        Consonantia, there live the blind texts. Separated they live in Bookmarksgrove--}}
-                        {{--                                        right at the coast of the Semantics, a large language ocean.</p>--}}
-                        {{--                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptate,--}}
-                        {{--                                        quibusdam sunt iste dolores consequatur</p>--}}
-                        {{--                                    <p><a href="#" class="btn btn-primary py-3">Get in touch</a></p>--}}
-                        {{--                                </div>--}}
-                        {{--                            </div>--}}
-                        {{--                        </div>--}}
 
-                        {{--                        <div class="tab-pane fade" id="v-pills-effect" role="tabpanel"--}}
-                        {{--                             aria-labelledby="v-pills-effect-tab">--}}
-                        {{--                            <div class="d-md-flex">--}}
-                        {{--                                <div class="one-forth align-self-center">--}}
-                        {{--                                    <img src="images/undraw_business_plan_5i9d.svg" class="img-fluid" alt="">--}}
-                        {{--                                </div>--}}
-                        {{--                                <div class="one-half ml-md-5 align-self-center">--}}
-                        {{--                                    <h2 class="mb-4">Effective VPS hosting</h2>--}}
-                        {{--                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and--}}
-                        {{--                                        Consonantia, there live the blind texts. Separated they live in Bookmarksgrove--}}
-                        {{--                                        right at the coast of the Semantics, a large language ocean.</p>--}}
-                        {{--                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptate,--}}
-                        {{--                                        quibusdam sunt iste dolores consequatur</p>--}}
-                        {{--                                    <p><a href="#" class="btn btn-primary py-3">Get in touch</a></p>--}}
-                        {{--                                </div>--}}
-                        {{--                            </div>--}}
-                        {{--                        </div>--}}
                     </div>
                 </div>
             </div>
