@@ -25,7 +25,7 @@ class Blog extends Model implements HasMedia
     public function registerMediaConversions(Media $media = null): void
     {
         $this
-            ->addMediaConversion('webp')z
+            ->addMediaConversion('webp')
             ->format('webp')
             ->nonQueued();
     }

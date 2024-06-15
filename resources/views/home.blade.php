@@ -123,75 +123,78 @@
                 <div class="col-md-12 nav-link-wrap mb-5 pb-md-5 pb-sm-1 ftco-animate">
                     <div class="nav ftco-animate nav-pills justify-content-center text-center" id="v-pills-tab"
                          role="tablist" aria-orientation="vertical">
-                        <a class="nav-link active" id="v-pills-nextgen-tab" data-toggle="pill" href="#v-pills-nextgen"
-                           role="tab" aria-controls="v-pills-nextgen" aria-selected="true">Next gen VPS</a>
+                        @foreach($implements as $implement)
+                            <a class="nav-link  {{$loop->first?'active':''}}  "
+                               id='{{"v-pills-".Illuminate\Support\Str::slug($implement->tap)."-tab"}}'
+                               data-toggle="pill"
+                               href='{{"#v-pills-".Illuminate\Support\Str::slug($implement->tap)}}'
+                               role="tab" aria-controls='{{"v-pills-".Illuminate\Support\Str::slug($implement->tap)}}'
+                               aria-selected="true">{{$implement->tap}}</a>
+                        @endforeach
+                        {{--                        <a class="nav-link" id="v-pills-performance-tab" data-toggle="pill" href="#v-pills-performance"--}}
+                        {{--                           role="tab" aria-controls="v-pills-performance" aria-selected="false">Performance</a>--}}
 
-                        <a class="nav-link" id="v-pills-performance-tab" data-toggle="pill" href="#v-pills-performance"
-                           role="tab" aria-controls="v-pills-performance" aria-selected="false">Performance</a>
-
-                        <a class="nav-link" id="v-pills-effect-tab" data-toggle="pill" href="#v-pills-effect" role="tab"
-                           aria-controls="v-pills-effect" aria-selected="false">Effectiveness</a>
+                        {{--                        <a class="nav-link" id="v-pills-effect-tab" data-toggle="pill" href="#v-pills-effect" role="tab"--}}
+                        {{--                           aria-controls="v-pills-effect" aria-selected="false">Effectiveness</a>--}}
                     </div>
                 </div>
                 <div class="col-md-12 align-items-center ftco-animate">
-
                     <div class="tab-content ftco-animate" id="v-pills-tabContent">
+                        @foreach($implements as $implement)
+                            <div class="tab-pane fade show  {{$loop->first?'active':''}}"
+                                 id='{{"v-pills-".Illuminate\Support\Str::slug($implement->tap)}}' role="tabpanel"
+                                 aria-labelledby='{{"v-pills-".Illuminate\Support\Str::slug($implement->tap)."-tab"}}'>
+                                <div class="d-md-flex">
+                                    <div class="one-forth align-self-center">
+                                        <img
+                                            src="data:image/svg+xml;base64,{{ base64_encode($implement->icon) }}"
+                                            class="img-fluid" alt="">
+                                    </div>
+                                    <div class="one-half ml-md-5 align-self-center">
+                                        <h2 class="mb-4">{{$implement->title}}</h2>
+                                        <p> {{$implement->info}} </p>
 
-                        <div class="tab-pane fade show active" id="v-pills-nextgen" role="tabpanel"
-                             aria-labelledby="v-pills-nextgen-tab">
-                            <div class="d-md-flex">
-                                <div class="one-forth align-self-center">
-                                    <img
-                                        src="data:image/svg+xml;base64,{{ base64_encode($setting->how_it_works_icon) }}"
-                                        class="img-fluid" alt="">
-                                </div>
-                                <div class="one-half ml-md-5 align-self-center">
-                                    <h2 class="mb-4">Next gen VPS hosting</h2>
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                        Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
-                                        right at the coast of the Semantics, a large language ocean.</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptate,
-                                        quibusdam sunt iste dolores consequatur</p>
-                                    <p><a href="#" class="btn btn-primary py-3">Get in touch</a></p>
+{{--                                        <p><a href="#" class="btn btn-primary py-3">Get in touch</a></p>--}}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endforeach
 
-                        <div class="tab-pane fade" id="v-pills-performance" role="tabpanel"
-                             aria-labelledby="v-pills-performance-tab">
-                            <div class="d-md-flex">
-                                <div class="one-forth order-last align-self-center">
-                                    <img src="images/undraw_visual_data_b1wx.svg" class="img-fluid" alt="">
-                                </div>
-                                <div class="one-half order-first mr-md-5 align-self-center">
-                                    <h2 class="mb-4">Performance VPS hosting</h2>
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                        Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
-                                        right at the coast of the Semantics, a large language ocean.</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptate,
-                                        quibusdam sunt iste dolores consequatur</p>
-                                    <p><a href="#" class="btn btn-primary py-3">Get in touch</a></p>
-                                </div>
-                            </div>
-                        </div>
+                        {{--                        <div class="tab-pane fade" id="v-pills-performance" role="tabpanel"--}}
+                        {{--                             aria-labelledby="v-pills-performance-tab">--}}
+                        {{--                            <div class="d-md-flex">--}}
+                        {{--                                <div class="one-forth order-last align-self-center">--}}
+                        {{--                                    <img src="images/undraw_visual_data_b1wx.svg" class="img-fluid" alt="">--}}
+                        {{--                                </div>--}}
+                        {{--                                <div class="one-half order-first mr-md-5 align-self-center">--}}
+                        {{--                                    <h2 class="mb-4">Performance VPS hosting</h2>--}}
+                        {{--                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and--}}
+                        {{--                                        Consonantia, there live the blind texts. Separated they live in Bookmarksgrove--}}
+                        {{--                                        right at the coast of the Semantics, a large language ocean.</p>--}}
+                        {{--                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptate,--}}
+                        {{--                                        quibusdam sunt iste dolores consequatur</p>--}}
+                        {{--                                    <p><a href="#" class="btn btn-primary py-3">Get in touch</a></p>--}}
+                        {{--                                </div>--}}
+                        {{--                            </div>--}}
+                        {{--                        </div>--}}
 
-                        <div class="tab-pane fade" id="v-pills-effect" role="tabpanel"
-                             aria-labelledby="v-pills-effect-tab">
-                            <div class="d-md-flex">
-                                <div class="one-forth align-self-center">
-                                    <img src="images/undraw_business_plan_5i9d.svg" class="img-fluid" alt="">
-                                </div>
-                                <div class="one-half ml-md-5 align-self-center">
-                                    <h2 class="mb-4">Effective VPS hosting</h2>
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                        Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
-                                        right at the coast of the Semantics, a large language ocean.</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptate,
-                                        quibusdam sunt iste dolores consequatur</p>
-                                    <p><a href="#" class="btn btn-primary py-3">Get in touch</a></p>
-                                </div>
-                            </div>
-                        </div>
+                        {{--                        <div class="tab-pane fade" id="v-pills-effect" role="tabpanel"--}}
+                        {{--                             aria-labelledby="v-pills-effect-tab">--}}
+                        {{--                            <div class="d-md-flex">--}}
+                        {{--                                <div class="one-forth align-self-center">--}}
+                        {{--                                    <img src="images/undraw_business_plan_5i9d.svg" class="img-fluid" alt="">--}}
+                        {{--                                </div>--}}
+                        {{--                                <div class="one-half ml-md-5 align-self-center">--}}
+                        {{--                                    <h2 class="mb-4">Effective VPS hosting</h2>--}}
+                        {{--                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and--}}
+                        {{--                                        Consonantia, there live the blind texts. Separated they live in Bookmarksgrove--}}
+                        {{--                                        right at the coast of the Semantics, a large language ocean.</p>--}}
+                        {{--                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptate,--}}
+                        {{--                                        quibusdam sunt iste dolores consequatur</p>--}}
+                        {{--                                    <p><a href="#" class="btn btn-primary py-3">Get in touch</a></p>--}}
+                        {{--                                </div>--}}
+                        {{--                            </div>--}}
+                        {{--                        </div>--}}
                     </div>
                 </div>
             </div>
@@ -217,7 +220,8 @@
                                 <div class="meta mb-3">
                                     <div><a href="#">{{$blog->created_at->format('Y-m-d')}}</a></div>
                                     <div><a href="#">MADA</a></div>
-                                    <div><a href="#" class="meta-chat"><span class="icon-chat"></span> {{$blog->comments_count}}</a></div>
+                                    <div><a href="#" class="meta-chat"><span
+                                                class="icon-chat"></span> {{$blog->comments_count}}</a></div>
                                 </div>
                                 <div class="desc pl-3">
                                     <h3 class="heading"><a href="#">{{$blog->title}}</a></h3>
