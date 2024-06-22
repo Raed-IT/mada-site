@@ -6,7 +6,8 @@
         <div class="container">
             <div class="row no-gutters slider-text align-items-end justify-content-start">
                 <div class="col-md-8 ftco-animate text-center text-md-left mb-5">
-                    <p class="breadcrumbs mb-0"><span class="mr-3"><a href="{{ route('home')}}">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>About</span></p>
+                    <p class="breadcrumbs mb-0"><span class="mr-3"><a href="{{ route('home')}}">Home <i
+                                    class="ion-ios-arrow-forward"></i></a></span> <span>About</span></p>
                     <h1 class="mb-3 bread">About</h1>
                 </div>
             </div>
@@ -19,33 +20,54 @@
                     <h2 class="h4">Contact Information</h2>
                 </div>
                 <div class="w-100"></div>
+
                 <div class="col-md-3">
-                    <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+                    <p><span>Phone:</span> <a href="tel://{{$setting->phone}}">{{$setting->phone}}</a></p>
                 </div>
                 <div class="col-md-3">
-                    <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+                    <p><span>Email:</span> <a
+                            href="mailto:{{$setting->email}}">{{$setting->email}}</a></p>
                 </div>
-                <div class="col-md-3">
-                    <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
-                </div>
-                <div class="col-md-3">
-                    <p><span>Website</span> <a href="#">yoursite.com</a></p>
-                </div>
+
             </div>
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
             <div class="row block-9">
+
                 <div class="col-md-6 pr-md-5">
-                    <form action="#">
+                    <form action="{{route('contacts.store')}}" method="POST">
+                        @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name">
+                            <input type="text" name="name" value="{{old('name')}}" class="form-control"
+                                   placeholder="Your Name">
+                            @error('name')
+                            <span style="color: red" role="alert">
+                                    {{ $message }}
+                                </span>
+                            @enderror
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Email">
+                            <input type="text" name="email" value="{{old('email')}}" class="form-control"
+                                   placeholder="Your Email">
+                            @error('email')
+                            <span style="color: red" role="alert">
+                                    {{ $message }}
+                                </span>
+                            @enderror
                         </div>
+
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Subject">
-                        </div>
-                        <div class="form-group">
-                            <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+                            <textarea name="message" value="{{old('message')}}" id="" cols="30" rows="7"
+                                      class="form-control"
+                                      placeholder="Message"></textarea>
+                            @error('message')
+                            <span style="color: red" role="alert">
+                                    {{ $message }}
+                                </span>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
@@ -54,7 +76,9 @@
 
                 </div>
 
-                <div class="col-md-6" id="map"></div>
+                <div class="col-md-6"  >
+                    {!! $setting->map !!}
+                 </div>
             </div>
         </div>
     </section>

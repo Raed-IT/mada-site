@@ -14,13 +14,13 @@
 
 
                     <!-- END comment-list -->
-
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
                     <div class="comment-form-wrap pt-5">
-                        @if (session('success'))
-                            <div class="alert alert-success">
-                                {{ session('success') }}
-                            </div>
-                        @endif
+
                         <h3 class="mb-5">Leave a comment</h3>
                         <form action="{{route('comments.store',['id'=>2])}}" method="POST" class="p-5 bg-light">
                             @csrf

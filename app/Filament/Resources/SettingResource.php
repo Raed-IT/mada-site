@@ -27,11 +27,8 @@ class SettingResource extends Resource
                     Forms\Components\TextInput::make('why_choose_us_label')->label("Why Choose Us")->required(),
                     Forms\Components\TextInput::make('why_choose_us_desc')->label("Why Choose Us Desc")->required(),
                     Forms\Components\TextInput::make('counter_label')->label("Counter Label")->required(),
-
-
                     Forms\Components\TextInput::make('recent_blog_label')->label("Recent Blog ")->required(),
                     Forms\Components\TextInput::make('recent_blog_desc')->label("Recent Blog Desc")->required(),
-                    Forms\Components\TextInput::make('contact_information_label')->label("Contact Information ")->required(),
                 ])->columnSpan(3),
                 Forms\Components\Group::make()->schema([
                     Forms\Components\Section::make("How It Work")->schema([
@@ -43,6 +40,13 @@ class SettingResource extends Resource
                         Forms\Components\TextInput::make('main_services_label')->label("Main Services")->required(),
                         Forms\Components\TextInput::make('main_services_desc')->label("Main Services Label")->required(),
                         Forms\Components\Textarea::make('main_services_icon')->label("Main Services Icon SVG")->required(),
+                    ])->collapsed(),
+                    Forms\Components\Section::make("Contact")->schema([
+                        Forms\Components\TextInput::make('contact_information_label')->label("Contact Information ")->required(),
+                        Forms\Components\TextInput::make('phone')->required(),
+                        Forms\Components\TextInput::make('email')->email()->required(),
+                        Forms\Components\Textarea::make('map')->label('Ifram From Goolge map ') ->required(),
+
                     ])->collapsed(),
                 ])->columnSpan(2)
             ])->columns(5);

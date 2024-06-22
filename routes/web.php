@@ -23,6 +23,7 @@ Route::group(['prefix' => 'privet'], function () {
     Route::get('/blogs/{id}', [BlogsController::class, 'show'])->name('showPost');
     Route::get('/about', [\App\Http\Controllers\AboutController::class, 'index'])->name('about');
     Route::get('/contacts', [\App\Http\Controllers\ContactsController::class, 'index'])->name('contacts');
+    Route::post('/contacts', [\App\Http\Controllers\ContactsController::class, 'store'])->name('contacts.store');
     Route::post('/comments/{id}', [\App\Http\Controllers\CommentController::class, 'store'])->name('comments.store');
 });
 
