@@ -6,6 +6,7 @@ use App\Filament\Resources\SettingResource;
 use App\Models\Setting;
 use Filament\Facades\Filament;
 use Filament\Navigation\NavigationItem;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Paginator::useBootstrap();
         Filament::serving(function () {
             Filament::registerNavigationItems([
                 NavigationItem::make('Setting')

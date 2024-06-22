@@ -185,7 +185,7 @@
                 @foreach($blogs as $blog)
                     <div class="col-md-4 ftco-animate">
                         <div class="blog-entry">
-                            <a href="blog-single.html" class="block-20"
+                            <a href="{{route('showPost',$blog->id)}}" class="block-20"
                                style="background-image: url({{$blog->image}});">
                             </a>
                             <div class="text d-flex py-4">
@@ -196,7 +196,7 @@
                                                 class="icon-chat"></span> {{$blog->comments_count}}</a></div>
                                 </div>
                                 <div class="desc pl-3">
-                                    <h3 class="heading"><a href="#">{{$blog->title}}</a></h3>
+                                    <h3 class="heading"><a href="{{route('showPost',$blog->id)}}">{{$blog->title}}</a></h3>
                                 </div>
                             </div>
                         </div>

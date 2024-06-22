@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use Illuminate\Http\Request;
 
 class BlogsController extends Controller
@@ -11,7 +12,8 @@ class BlogsController extends Controller
      */
     public function index()
     {
-        return view('blogs');
+        $blogs = Blog::withCount("comments")->latest()->cursorPaginate(9);
+        return view('blogs',)->with(['blogs' => $blogs]);
     }
 
     /**
@@ -35,7 +37,8 @@ class BlogsController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $post = Blog::findOrFail($id);
+        return view('showPost')->with(['post'=>$post]);
     }
 
     /**
